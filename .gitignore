@@ -1,0 +1,50 @@
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+env/
+venv/
+
+# Archivos de configuración del entorno
+*.env
+*.venv
+*.envrc
+.venv/
+.env/
+
+# Archivos de configuración específicos del IDE
+.vscode/
+.idea/
+
+# Archivos de dependencias y paquetes
+.Python
+*.pyo
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Archivos de logs
+*.log
+
+# Archivos de bases de datos
+*.sqlite3
+
+# Archivos de caché y metadatos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+
+# Configuraciones de Python virtualenv (opcional)
+.venv/
+.env/
+
+# Cualquier otro archivo ejecutable
+*.exe
+*.out
