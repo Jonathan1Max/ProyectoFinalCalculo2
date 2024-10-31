@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Integrales y L'Hôpital</title>
+</head>
+<body>
+    <h1>Calculadora de Integrales Impropias y Regla de L'Hôpital</h1>
+    
+    <form action="/calcular_integral" method="post">
+        <h2>Calcular Integral Impropia</h2>
+        Función: <input type="text" name="funcion" required><br>
+        Límite Inferior: <input type="text" name="limite_inferior" required><br>
+        Límite Superior: <input type="text" name="limite_superior" required><br>
+        <button type="submit">Calcular Integral</button>
+    </form>
+
+    {% if resultado_integral %}
+        <h3>Resultado de la Integral Impropia: {{ resultado_integral }}</h3>
+        <img src="{{ graph_url }}" alt="Gráfica de la Integral">
+    {% endif %}
+
+    <form action="/calcular_lhopital" method="post">
+        <h2>Calcular Límite usando Regla de L'Hôpital</h2>
+        Numerador: <input type="text" name="numerador" required><br>
+        Denominador: <input type="text" name="denominador" required><br>
+        Punto: <input type="text" name="punto" required><br>
+        <button type="submit">Calcular Límite</button>
+    </form>
+
+    {% if resultado_lhopital %}
+        <h3>Límite Original: {{ resultado_lhopital[0] }}</h3>
+        <h3>Resultado de L'Hôpital: {{ resultado_lhopital[1] }}</h3>
+        <img src="{{ lhopital_graph_url }}" alt="Gráfica de L'Hôpital">
+    {% endif %}
+</body>
+</html>

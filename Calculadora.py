@@ -3,7 +3,7 @@ import sympy as sp
 from IntegralImpropia import IntegralImpropia
 from lhopital import ReglaLhopital
 
-class Calculadora:
+#class Calculadora:
     def __init__(self):
         self.variable = sp.symbols('x')  # Definimos la variable común para las operaciones
 
