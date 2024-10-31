@@ -1,11 +1,14 @@
 # README: Calculadora de Integrales Impropias y Regla de L'Hopital
 
 ## Introducción
-Esta aplicación permite calcular integrales impropias y aplicar la Regla de L'Hopital usando la biblioteca **SymPy** de Python. La interfaz es sencilla y permite al usuario interactuar a través de la terminal.
+Esta aplicación permite calcular integrales impropias y límites utilizando la Regla de L'Hôpital con Python, mostrando tanto el valor como una gráfica de la función. La aplicación emplea las bibliotecas SymPy para cálculo simbólico y Matplotlib para graficar resultados.
 
 ## Requisitos
 - Python 3.x
 - SymPy (instalar con `pip install sympy`)
+- NumPy (instalar con pip install numpy)
+- Matplotlib (instalar con pip install matplotlib)
+
 
 ## Cómo Ejecutar el Programa en la terminal de Windows 
 1. **Clona o descarga el repositorio** en tu máquina local.
@@ -14,35 +17,21 @@ Esta aplicación permite calcular integrales impropias y aplicar la Regla de L'H
    cd C:\ruta\al\directorio\del\proyecto
    python nombre_del_archivo.py
 
-## Interfaz del usuario
-Al ejecutar el programa, verás un menú en la terminal con las siguientes opciones:
+## Funcionamiento Web
+Al ejecutar el programa, se inicia un servidor web que se puede acceder a través de un navegador. La aplicación proporciona dos secciones principales:
 
-¡Bienvenido al calculador de Integrales Impropias y Regla de L'Hopital!
-Selecciona una opción:
-1. Calcular Integral Impropia
-2. Calcular Límite usando Regla de L'Hopital
-3. Salir
+# Calcular Integral Impropia
+Ingresa la función que deseas integrar, junto con los límites inferior y superior.
+Por ejemplo, para la función 1/x, ingresa el límite inferior como 1 y el límite superior como oo para infinito.
 
-## EJEMPLO OPCION 1
-Selecciona la opción: 1
-Ingresa la función: x**2 + 2*x + 1
-Ingresa el límite inferior: 0
-Ingresa el límite superior: oo
-
-Ingresa la función: 1/x
-Ingresa el límite inferior: 1
-Ingresa el límite superior: oo
-
-## EJEMPLO OPCION 2
-Selecciona la opción: 2
-Ingresa el numerador: x**2
-Ingresa el denominador: x - 1
-Ingresa el punto donde calcular el límite: 1
-
-Ingresa el numerador: sin(x)
-Ingresa el denominador: x
-Ingresa el punto donde calcular el límite: 0
+# Calcular Límite usando Regla de L'Hôpital
+Ingresa el numerador y el denominador de la función, así como el punto donde deseas calcular el límite.
+Por ejemplo, para calcular el límite de (x**2)/(x - 1) cuando x se aproxima a 1, ingresa x**2 como numerador y x - 1 como denominador, con 1 como el punto.
 
 ## Notas adicionales
-Asegúrate de ingresar las funciones en el formato correcto usando la sintaxis de Python para operaciones matemáticas.
-Para funciones complejas, consulta la documentación de SymPy para obtener detalles sobre cómo ingresar expresiones más complicadas.
+- Asegúrate de ingresar las funciones en el formato correcto utilizando la sintaxis de Python para operaciones matemáticas.
+- Para funciones complejas, consulta la documentación de SymPy para obtener detalles sobre cómo ingresar expresiones más complicadas.
+- Los límites en las integrales impropias pueden ser ingresados como oo para infinito.
+
+## Contribuciones
+Si deseas contribuir al proyecto, por favor crea un fork del repositorio y envía un pull request con tus mejoras. Se agradecerá bastante.

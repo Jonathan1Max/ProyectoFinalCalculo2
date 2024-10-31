@@ -1,37 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Integrales y L'Hôpital</title>
+    <title>Calculadora de Integrales impropias y Regla de L'Hôpital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Calculadora de Integrales Impropias y Regla de L'Hôpital</h1>
-    <form action="/calcular_integral" method="post">
-        <h2>Calcular Integral Impropia</h2>
-        Función: <input type="text" name="funcion"><br>
-        Límite Inferior: <input type="text" name="limite_inferior"><br>
-        Límite Superior: <input type="text" name="limite_superior"><br>
-        <button type="submit">Calcular Integral</button>
-    </form>
+    <div class="container mt-5">
+        <h1>Calculadora de Integrales e L'Hôpital</h1>
 
-    {% if resultado_integral %}
-        <h3>Resultado de la Integral Impropia: {{ resultado_integral }}</h3>
-        <img src="{{ graph_url }}" alt="Gráfica de la Integral" style="max-width: 100%; height: auto;">
-    {% endif %}
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger">
+              {{ messages[0] }}
+            </div>
+          {% endif %}
+        {% endwith %}
 
-    <form action="/calcular_lhopital" method="post">
-        <h2>Calcular Límite usando Regla de L'Hôpital</h2>
-        Numerador: <input type="text" name="numerador"><br>
-        Denominador: <input type="text" name="denominador"><br>
-        Punto: <input type="text" name="punto"><br>
-        <button type="submit">Calcular Límite</button>
-    </form>
+        <form action="/calcular_integral" method="POST" class="mb-4">
+            <h3>Integral Impropia</h3>
+            <div class="mb-3">
+                <label for="funcion" class="form-label">Función:</label>
+                <input type="text" class="form-control" id="funcion" name="funcion" required>
+            </div>
+            <div class="mb-3">
+                <label for="limite_inferior" class="form-label">Límite Inferior:</label>
+                <input type="text" class="form-control" id="limite_inferior" name="limite_inferior" required>
+            </div>
+            <div class="mb-3">
+                <label for="limite_superior" class="form-label">Límite Superior:</label>
+                <input type="text" class="form-control" id="limite_superior" name="limite_superior" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular Integral</button>
+        </form>
 
-    {% if resultado_lhopital %}
-        <h3>Límite Original: {{ resultado_lhopital[0] }}</h3>
-        <h3>Resultado de L'Hôpital: {{ resultado_lhopital[1] }}</h3>
-        <img src="{{ graph_url }}" alt="Gráfica de L'Hôpital" style="max-width: 100%; height: auto;">
-    {% endif %}
+        <form action="/calcular_lhopital" method="POST" class="mb-4">
+            <h3>Regla de L'Hôpital</h3>
+            <div class="mb-3">
+                <label for="numerador" class="form-label">Numerador:</label>
+                <input type="text" class="form-control" id="numerador" name="numerador" required>
+            </div>
+            <div class="mb-3">
+                <label for="denominador" class="form-label">Denominador:</label>
+                <input type="text" class="form-control" id="denominador" name="denominador" required>
+            </div>
+            <div class="mb-3">
+                <label for="punto" class="form-label">Punto:</label>
+                <input type="text" class="form-control" id="punto" name="punto" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular Límite</button>
+        </form>
+
+        {% if resultado_integral %}
+            <h2>Resultado Integral:</h2>
+            <p>{{ resultado_integral }}</p>
+            <img src="{{ graph_url }}" style="width: 100%; height: auto;" alt="Gráfica de la Integral">
+        {% endif %}
+
+        {% if resultado_lhopital %}
+            <h2>Resultado L'Hôpital:</h2>
+            <p>Resultado Original: {{ resultado_lhopital[0] }}</p>
+            <p>Resultado usando L'Hôpital: {{ resultado_lhopital[1] }}</p>
+            <img src="{{ graph_url }}" style="width: 100%; height: auto;" alt="Gráfica de L'Hôpital">
+        {% endif %}
+    </div>
 </body>
 </html>
